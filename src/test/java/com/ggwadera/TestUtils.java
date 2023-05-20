@@ -63,4 +63,12 @@ public final class TestUtils {
         }
         return null;
     }
+
+    public static boolean treesAreEqual(TreeNode a, TreeNode b) {
+        if (a == b) return true;
+        if (a == null || b == null) return false;
+        return a.val == b.val
+            && treesAreEqual(a.left, b.left)
+            && treesAreEqual(a.right, b.right);
+    }
 }
