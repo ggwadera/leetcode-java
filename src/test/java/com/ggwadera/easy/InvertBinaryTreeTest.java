@@ -1,6 +1,5 @@
 package com.ggwadera.easy;
 
-import com.ggwadera.TestUtils;
 import com.ggwadera.common.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static com.ggwadera.TestUtils.parseTree;
+import static com.ggwadera.TestUtils.treesAreEqual;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
@@ -20,14 +20,14 @@ class InvertBinaryTreeTest {
     @MethodSource("parameterProvider")
     void invertTree(TreeNode root, TreeNode expected) {
         TreeNode inverted = ibt.invertTree(root);
-        assertThat(TestUtils.treesAreEqual(inverted, expected)).isTrue();
+        assertThat(treesAreEqual(inverted, expected)).isTrue();
     }
 
     @ParameterizedTest
     @MethodSource("parameterProvider")
     void invertTreeIterative(TreeNode root, TreeNode expected) {
         TreeNode inverted = ibt.invertTreeIterative(root);
-        assertThat(TestUtils.treesAreEqual(inverted, expected)).isTrue();
+        assertThat(treesAreEqual(inverted, expected)).isTrue();
     }
 
     public static Stream<Arguments> parameterProvider() {
