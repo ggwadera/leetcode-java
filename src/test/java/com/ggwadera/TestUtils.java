@@ -84,4 +84,14 @@ public final class TestUtils {
         }
         return head;
     }
+
+    public static boolean linkedListsAreEqual(ListNode a, ListNode b) {
+        while (a != null || b != null) {
+            if (a == null || b == null) return false;
+            if (a.val != b.val) return false;
+            a = a.next;
+            b = b.next;
+        }
+        return true;
+    }
 }
