@@ -1,5 +1,6 @@
 package com.ggwadera;
 
+import com.ggwadera.common.ListNode;
 import com.ggwadera.common.TreeNode;
 
 import java.util.ArrayDeque;
@@ -70,5 +71,17 @@ public final class TestUtils {
         return a.val == b.val
             && treesAreEqual(a.left, b.left)
             && treesAreEqual(a.right, b.right);
+    }
+
+    public static ListNode parseLinkedList(int... nodes) {
+        if (nodes == null || nodes.length == 0) return null;
+        ListNode head = new ListNode(nodes[0]);
+        ListNode current = head;
+        for (int i = 1; i < nodes.length; i++) {
+            ListNode node = new ListNode(nodes[i]);
+            current.next = node;
+            current = node;
+        }
+        return head;
     }
 }
