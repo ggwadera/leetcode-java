@@ -28,4 +28,19 @@ public final class TestUtils {
         return matrix;
     }
 
+    public static char[][] parseCharMatrix(String matrixString, int m, int n) {
+        char[][] matrix = new char[m][n];
+        String[] rows = matrixString.replaceAll("[ \\[]", "")
+            .replaceAll("],", " ")
+            .replaceAll("]", "")
+            .split(" ");
+        for (int i = 0; i < rows.length; i++) {
+            String[] columns = rows[i].split(",");
+            for (int j = 0; j < columns.length; j++) {
+                matrix[i][j] = columns[j].charAt(0);
+            }
+        }
+        return matrix;
+    }
+
 }
