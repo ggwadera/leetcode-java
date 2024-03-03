@@ -1,6 +1,8 @@
 package com.ggwadera.utils;
 
 import com.ggwadera.common.ListNode;
+import org.assertj.core.api.Condition;
+
 
 public class LinkedListUtils {
 
@@ -35,5 +37,9 @@ public class LinkedListUtils {
             b = b.next;
         }
         return true;
+    }
+
+    public static Condition<ListNode> isEqualTo(ListNode expected) {
+        return new Condition<>(node -> linkedListsAreEqual(node, expected), "LinkedLists should be equal");
     }
 }
