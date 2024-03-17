@@ -1,8 +1,16 @@
 package com.ggwadera.utils;
 
+import java.util.Arrays;
+
 public final class TestUtils {
 
     private TestUtils() {
+    }
+
+    public static int[] parseArray(String input) {
+        return Arrays.stream(input.replaceAll("[^-?0-9]+", " ").trim().split(" "))
+            .mapToInt(Integer::parseInt)
+            .toArray();
     }
 
     /**
@@ -20,10 +28,7 @@ public final class TestUtils {
             .replaceAll("]", "")
             .split(" ");
         for (int i = 0; i < rows.length; i++) {
-            String[] columns = rows[i].split(",");
-            for (int j = 0; j < columns.length; j++) {
-                matrix[i][j] = Integer.parseInt(columns[j]);
-            }
+            matrix[i] = parseArray(rows[i]);
         }
         return matrix;
     }
