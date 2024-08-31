@@ -28,4 +28,4 @@ jobs:
           cache: maven
 
       - name: Test with Maven
-        run: ./mvnw -B test --file pom.xml
+        run: ./mvnw --batch-mode --file pom.xml --threads 1C test
